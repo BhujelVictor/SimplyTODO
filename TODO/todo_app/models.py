@@ -23,6 +23,7 @@ class ToDoItem(models.Model):
     description = models.TextField(null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     due_date = models.DateTimeField(default=one_week_hence)
+    completed = models.BooleanField(default=False)
     # Foreign key: each to-do item must belong to a to-do list
     # on_delete: deletes the all the to-do items associated with a to-do list
     todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE)
