@@ -21,12 +21,13 @@
             <li>
 
                 <div>
-
-                    <div role="button" onclick="location.href='#'">
+                    {% comment %} % url "key" [param1 [, param2 [,...]]]%} >> URL name is combined with data from context to contrust hyperlinks {% endcomment %}
+                    <div role="button" onclick="location.href='{% url "item-update" todo_list.id todo.id %}'">
 
                         {{ todo.title }}
 
                         (Due {{ todo.due_date | date:"l, F j" }})
+                        
 
                     </div>
 
@@ -44,7 +45,17 @@
 
         <p>
 
-            <input value="Add a new item" type="button" onclick="location.href='#'" />
+            <input 
+                value="Add a new item" 
+                type="button" 
+                onclick="location.href='{% url "item-add" todo_list.id %}'" />
+            
+            <input
+                value="Delete this list"
+                type="button"
+                onclick="location.href=
+                '{% url "list-delete" todo_list.id %}'" />
+
 
         </p>
 
