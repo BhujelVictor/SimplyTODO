@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authuser',
+    'todo_app',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,11 @@ STATIC_URL = 'static/'
 # ]
 
 
-AUTHENTICATION_BACKENDS = ['authuser.backends.EmailBackend']
+AUTHENTICATION_BACKENDS = [
+    'authuser.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend'
+    ]
+
 
 
 # Default primary key field type
